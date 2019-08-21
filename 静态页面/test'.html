@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+  div{
+    background-color: #fff;
+  }
+</style>
+<script>
+  // function uniq(array){
+  //   var temp = [];
+  //   for(var i = 0; i < array.length; i++) {
+  //     //如果当前数组的第i项在当前数组中第一次出现的位置是i，才存入数组；否则代表是重复的
+  //     if(array.indexOf(array[i]) == i){
+  //       temp.push(array[i])
+  //     }
+  //   }
+  //   return temp;
+  // }
+  //
+  // var aa = [1,2,"2",4,9,"a","a",2,3,5,6,5];
+  // console.log(uniq(aa));
+
+  // let arr = [1,2,3,5]
+  // for(let i of arr){
+  //   console.log(i);
+  // }
+
+//  原生ajax
+//   let xmlhttp = XMLHttpRequest;
+//   xmlhttp.open('方式',"路径")
+//   xmlhttp.send();
+//   xmlhttp.onreadystatechange = function () {
+//     if(xmlhttp.readystate == 4){
+//       if(xmlhttp.status >= 200 && xmlhttp.status< 300 || xmlhttp.status == 304 ){
+//         console.log(xmlhttp.response)
+//       }
+//     }
+//   }
+
+//  冒泡
+//   let arr = [2,3,12,6,24,5,7]
+//   for(let i = 0 ; i < arr.length-1;i++){
+//     for(let j = 0;j<arr.length - 1; j++){
+//       if(arr[j] < arr[j+1]){
+//         let temp = arr[j];
+//         arr[j] = arr[j+1]
+//         arr[j+1] = temp
+//       }
+//     }
+//   }
+//   console.log(arr)
+
+  var str = '12345678';
+  str = str.split('').reverse().join('');
+  console.log(str);
+</script>
+</body>
+</html>
