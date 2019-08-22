@@ -23,7 +23,7 @@
       <div class="shopCart-main-container">
         <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-d6193bd6e4.png" alt="">
         <span>去添加点什么吧</span>
-        <button>登录</button>
+        <button @click="$router.replace('/personal')">登录</button>
       </div>
     </div>
   </div>

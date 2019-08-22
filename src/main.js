@@ -8,11 +8,19 @@ import 'amfe-flexible'
 import PersonalHeader from './pages/Personal/components/PersonalHeader'
 import './api/index'
 import './mock/mock'
+import './validate'
+import FastClick from 'fastclick'
+import VueLazyload from 'vue-lazyload'
+import loding from '../static/t01a0982c40d1d2fd0a.gif'
 Vue.config.productionTip = false
 
 Vue.component('PersonalHeader',PersonalHeader)
 
+FastClick.attach(document.body);
 
+Vue.use(VueLazyload,{
+  loding
+})
 
 /* eslint-disable no-new */
 new Vue({

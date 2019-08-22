@@ -2,10 +2,8 @@ import axios from 'axios'
 import qs from 'qs'
 
 axios.interceptors.request.use(config => {
-  
-  const {methods,data} = config;
-  
-  if(methods.toLowerCase() === 'post' && data instanceof Object){
+  const {method,data} = config;
+  if(method.toLowerCase() === 'post' && data instanceof Object){
     config.data = qs.stringify(data);
   }
   return config

@@ -1,11 +1,11 @@
 <template>
   <div class="nav-bar">
-        <ul>
-          <li>
-            <img src="http://yanxuan.nosdn.127.net/5243a7191dd4c86b3b28859089273aa8.gif" alt="">
-            <p>新品首发</p>
+        <ul v-if="homedata.kingKongModule">
+          <li v-for="(item,index) in homedata.kingKongModule.kingKongList" :key="index">
+            <img :src="item.picUrl" alt="">
+            <p>{{item.text}}</p>
           </li>
-          <li>
+          <!-- <li>
             <img src="https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png" alt="">
             <p>居家生活</p>
           </li>
@@ -40,7 +40,7 @@
           <li>
             <img src="http://yanxuan.nosdn.127.net/3954c3cbeb4359dd7007be7a076e0dda.gif" alt="">
             <p>超级会员</p>
-          </li>
+          </li> -->
         </ul>
       </div>
 </template>
@@ -48,9 +48,9 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-  mounted(){
-    this.$store.dispatch('getHome');
-    
+  async mounted(){
+    await this.$store.dispatch('getHome');
+    console.log(this.homedata.kingKongModule)
   },
   computed:{
     ...mapState(['homedata'])

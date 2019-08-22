@@ -9,7 +9,7 @@
         <div class="personal-main-center-phone" @click="changeScreen">
           <i></i>
           手机号快捷登录
-        </div>
+        </div>  
         <div class="personal-main-center-email" @click="emailLogin">
           <i></i>
           邮箱账号登录
@@ -37,12 +37,18 @@
       </div>
       <div class="personal-phone-center" >
         <div class="personal-phone-shouji">
-          <input type="text" :placeholder="isPhone?'请输入手机号':'请输入邮箱'" >
+          <input type="text" placeholder="请输入手机号" v-model="admin" name="phone" v-validate = "'required|mobile'" v-show="isPhone">
+          <input type="text" placeholder="请输入邮箱" v-model="zhanghao" name="zhanghao" v-validate = "'required|zhanghaoyz'" v-show="!isPhone" >
         </div>
-        <div class="personal-phone-duanxin">
-          <input type="text" :placeholder="isPhone?'请输入短信验证码':'密码'">
+        <span style="color:red" v-show="errors.has('phone')" v-if="isPhone">{{errors.first('phone')}}</span>
+        <span style="color:red" v-show="errors.has('zhanghao')" v-if="!isPhone">{{errors.first('zhanghao')}}</span>
+        <div class="personal-phone-duanxin">  
+          <input type="text" placeholder="请输入短信验证码" v-model="duanxin" name="duanxin" v-show="isPhone" v-validate = "{regex:/^\d{6}$/}">
+          <input type="text" placeholder="密码" v-model="keyword" name="keyword" v-show="!isPhone" v-validate = "'required'">
           <a href="#" v-if="isPhone">获取验证码</a>
         </div>
+         <span style="color:red" v-show="isPhone">{{errors.first('duanxin')}}</span>
+        <span style="color:red" v-show="!isPhone">{{errors.first('keyword')}}</span>
         <div class="personal-phone-footer">
           <div class="personal-phone-footer-top">
            <span>{{this.isPhone?'遇到问题?':'注册账号'}}</span>
@@ -75,6 +81,11 @@ export default {
     return{
       screen:true,
       isPhone:true,
+      admin:'',
+      keyword:'',
+      zhanghao:'',
+      duanxin:'',
+      mima:'',
     }
   },
   methods:{
@@ -87,6 +98,12 @@ export default {
     },
     elseLogin(){
       this.isPhone = !this.isPhone;
+      
+      this.admin = '';
+      this.keyword = '';
+      this.zhanghao = '';
+      this.duanxin = '';
+      this.mima = '';
     }
   }
 }
@@ -227,6 +244,9 @@ export default {
 .personal-phone-center .personal-phone-shouji{
   width: 100%;
   border-bottom: 0.026667rem solid #ccc;
+}
+.personal-phone-center  span{
+  font-size: 14px;
 }
 .personal-phone-duanxin{
   display: flex;

@@ -1,4 +1,5 @@
 import Mock from 'mockjs'
 import home from './home.json'
-
-Mock.mock('/homes',{code:200,data:home})
+import category from './category'
+Mock.mock('/home', {code:200,data:home})
+Mock.mock('/cart',{code:200,data:category})

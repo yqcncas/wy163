@@ -2,12 +2,12 @@
 <div class="categorize">
   <div class="categorize-header">
     <div class="categorize-header-top">
-      <div class="header-top-left">
+      <div class="header-top-left"> 
         <i></i>
       </div>
       <div class="header-top-center">
-        <span>发现</span>
-        <span>甄选家</span>
+        <span @click="$router.push('/categorize')">发现</span>
+        <span @click="goToCategorizeHome">甄选家</span>
       </div>
       <div class="header-top-right">
         <i></i>
@@ -40,6 +40,7 @@
        </div>
     </div>
   </div>
+  <router-view></router-view>
     <div class="categorize-main">
     <div class="categorize-main-first">
       <img src="https://yanxuan.nosdn.127.net/15639572098632760.jpeg" alt="">
@@ -157,8 +158,14 @@ export default {
    const myScroll = new BScroll('.categorize-header-main',{
       scrollX:true
     })        
+  },
+  methods:{
+    goToCategorizeHome(){
+      this.$router.push("/categorize/categorizehome");
+    }
   }
 }
+
 </script>
 
 <style>
